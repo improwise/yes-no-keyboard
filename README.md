@@ -2,6 +2,8 @@
 
 This Angular application provides a simple interface for users to select "Yes" or "No" using various input methods, including keyboard, mouse, and gamepad. It's designed to be accessible and includes voice feedback.
 
+Demo available at https://yesnokeyboard.improwise.com/
+
 ## Features
 
 - Large, easy-to-click buttons for "Yes" and "No"
