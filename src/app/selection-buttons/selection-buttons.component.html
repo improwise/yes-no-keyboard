@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="button-container">
+    <button
+      [class]="
+        'button green' +
+        (selectedButton === 'green' ? ' animate-pulse' : '') +
+        (lastSelectedButton === 'green' ? ' last-selected' : '')
+      "
+      (click)="selectButton('green')"
+      [disabled]="isInputDisabled"
+    >
+      <div class="button-content">
+        <span class="label" [class.indicator]="lastSelectedButton === 'green'">{{ buttonText.yes }}</span>
+        <img
+          *ngIf="!selectedButton"
+          src="xboxadaptivecontroller-colored-green.jpg"
+          alt="Xbox Adaptive Controller"
+          class="controller-image"
+        />
+      </div>
+    </button>
+    <button
+      [class]="
+        'button red' +
+        (selectedButton === 'red' ? ' animate-pulse' : '') +
+        (lastSelectedButton === 'red' ? ' last-selected' : '')
+      "
+      (click)="selectButton('red')"
+      [disabled]="isInputDisabled"
+    >
+      <div class="button-content">
+        <span class="label" [class.indicator]="lastSelectedButton === 'red'">{{ buttonText.no }}</span>
+        <img
+          *ngIf="!selectedButton"
+          src="xboxadaptivecontroller-colored-red.jpg"
+          alt="Xbox Adaptive Controller"
+          class="controller-image"
+        />
+      </div>
+    </button>
+  </div>
+</div>

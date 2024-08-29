@@ -1,0 +1,132 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5%;
+}
+
+.label {
+    font-size: 15vw;
+    font-weight: bold;
+    color: white;
+}
+
+.button {
+    width: 40%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+.green {
+    background-color: #4CAF50;
+}
+
+.red {
+    background-color: #F44336;
+}
+
+.green::after {
+    box-shadow: 0 0 30px 15px rgba(76, 175, 80, 0.8);
+}
+
+.red::after {
+    box-shadow: 0 0 30px 15px rgba(244, 67, 54, 0.8);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.animate-pulse {
+    animation: pulse 0.5s ease-in-out;
+}
+
+.animate-pulse::after {
+    opacity: 1;
+    animation: pulse-ring 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.95);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.95);
+    }
+}
+
+.last-selected {
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.green.last-selected {
+    box-shadow: 0 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+.red.last-selected {
+    box-shadow: 0 0 0 8px rgba(244, 67, 54, 0.5);
+}
+
+.indicator {
+    font-size: 15vw; /* Responsive font size based on viewport width */
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.button-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controller-image {
+    width: 100px;
+    /* Adjust this value to make the image smaller */
+    height: auto;
+    margin-top: 5px;
+    /* Add some space between the label and the image */
+}
